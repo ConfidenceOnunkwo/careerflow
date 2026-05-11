@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerFlow - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/careerflow-icon.svg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="brand">
+            <img class="logo" src="images/careerflow-icon.svg" alt="CareerFlow logo">
+            <div class="brand-text">
+                <h2 class="brand-name">CareerFlow</h2>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="application.html">Add Application</a></li>
+                <li><a href="/logout" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome-container">
+            <h1 class="welcome-text">
+                Welcome back,
+                <span class="highlight-user" id="user-name">User</span>
+            </h1>
+            <p class="tagline-text">Manage your job applications in one place</p>
+        </section>
+
+        <section class="stats-bar">
+            <div class="stat-card">
+                <span class="stat-value" id="total-count">0</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="applied-count">0</span>
+                <span class="stat-label">Applied</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="interview-count">0</span>
+                <span class="stat-label">Interview</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="offer-count">0</span>
+                <span class="stat-label">Offers</span>
+            </div>
+        </section>
+
+        <div class="action-bar">
+            <div class="search-box">
+                <input type="text" placeholder="Search applications..." id="app-search">
+            </div>
+            <div class="filter-actions" style="position: relative;">
+                <button class="btn-filter" type="button">Filter</button>
+                <div id="filter-menu" style="display: none; position: absolute; top: 40px; right: 0; background: white; border: 1px solid #d0d9f5; padding: 10px; border-radius: 8px; z-index: 100;">
+                    <button class="filter-option">Applied</button>
+                    <button class="filter-option">Interview</button>
+                    <button class="filter-option">Offer</button>
+                    <button class="filter-option">Rejected</button>
+                </div>
+                <a href="application.html" style="text-decoration: none;">
+                    <button class="btn-add" type="button">+ Add Application</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- JOB CARDS — this was missing! -->
+        <section id="job-list-container" class="applications-list"></section>
+
+        <section class="statistics-container">
+            <hr class="horizontal-line">
+            <h1 class="statistics-title">Your <span id="title-stat">Statistics</span></h1>
+            <p class="tagline-text">Patterns from your application history</p>
+
+            <div class="stats-chart-grid">
+
+                <div class="stat-chart-card">
+                    <div class="chart-title">Conversion funnel</div>
+                    <div class="funnel-row">
+                        <span>Applied</span>
+                        <span id="funnel-applied-count" style="font-weight:600;color:#1a35a0;">0</span>
+                    </div>
+                    <div class="funnel-bar-wrap"><div id="funnel-applied-bar" class="funnel-fill" style="width:0%;background:#1a35a0;"></div></div>
+                    <div class="funnel-row">
+                        <span>Interview</span>
+                        <span id="funnel-interview-label" style="font-weight:600;color:#1a35a0;">0%</span>
+                    </div>
+                    <div class="funnel-bar-wrap"><div id="funnel-interview-bar" class="funnel-fill" style="width:0%;background:#3b5bdb;"></div></div>
+                    <div class="funnel-row">
+                        <span>Offer</span>
+                        <span id="funnel-offer-label" style="font-weight:600;color:#1a35a0;">0%</span>
+                    </div>
+                    <div class="funnel-bar-wrap"><div id="funnel-offer-bar" class="funnel-fill" style="width:0%;background:#74c0fc;"></div></div>
+                    <div class="funnel-row">
+                        <span>Rejected</span>
+                        <span id="funnel-rejected-label" style="font-weight:600;color:#dc2626;">0%</span>
+                    </div>
+                    <div class="funnel-bar-wrap"><div id="funnel-rejected-bar" class="funnel-fill" style="width:0%;background:#fca5a5;"></div></div>
+                </div>
+
+                <div class="stat-chart-card">
+                    <div class="chart-title">Applications per week</div>
+                    <div style="position:relative;height:150px;">
+                        <canvas id="weeklyChart" role="img" aria-label="Applications added per week">Weekly application counts</canvas>
+                    </div>
+                </div>
+
+                <div class="stat-chart-card">
+                    <div class="chart-title">Interview rate by role</div>
+                    <div style="position:relative;height:150px;">
+                        <canvas id="roleBarChart" role="img" aria-label="Interview rate by job role">Interview rate per role</canvas>
+                    </div>
+                </div>
+
+                <div class="stat-chart-card">
+                    <div class="chart-title">Role breakdown</div>
+                    <div id="rolePieLegend" class="pie-legend"></div>
+                    <div style="position:relative;height:110px;">
+                        <canvas id="rolePieChart" role="img" aria-label="Breakdown of job roles applied to">Role breakdown donut chart</canvas>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="stat-chart-card" style="margin-top:12px;">
+                <div class="chart-title">Insights — what your data is telling you</div>
+                <div id="insights-container"></div>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

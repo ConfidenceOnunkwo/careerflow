@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | CareerFlow</title>
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="icon" type="image/svg+xml" href="/images/careerflow-icon.svg">git
+</head>
+
+<body class="auth-page">
+
+    <a href="/index.html" class="auth-back-link">← Back to home</a>
+
+    <div class="auth-card">
+
+        <div class="auth-card__header">
+            <div class="auth-card__logo">
+                <img src="images/careerflow-icon.svg" alt="CareerFlow logo" class="auth-card__logo-image">
+                <span class="auth-card__logo-text">CareerFlow</span>
+            </div>
+            <h1 class="auth-card__title">Create an account</h1>
+            <p class="auth-card__subtitle">Join CareerFlow and start organising your job search</p>
+        </div>
+
+        <div class="auth-card__body">
+
+            <form class="form" id="registerForm" action="/register" method="POST" novalidate>
+
+                <div class="form__group">
+                    <label class="form__label" for="fullname">Full name</label>
+                    <input
+                        class="form__input"
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        placeholder="Enter your full name"
+                    >
+                    <div class="form__error" id="fullnameError"></div>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="email">Email address</label>
+                    <input
+                        class="form__input"
+                        type="text"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                    >
+                    <div class="form__error" id="emailError"></div>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="password">Password</label>
+                    <input
+                        class="form__input"
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                    >
+                    <div class="form__error" id="passwordError"></div>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="confirm">Confirm password</label>
+                    <input
+                        class="form__input"
+                        type="password"
+                        id="confirm"
+                        name="confirm"
+                        placeholder="Re-enter your password"
+                    >
+                    <div class="form__error" id="confirmError"></div>
+                </div>
+
+                <button class="button button--full" type="submit">Create account</button>
+
+            </form>
+
+            <div class="auth-card__divider">
+                <span class="auth-card__divider-line"></span>
+                <span class="auth-card__divider-text">or</span>
+                <span class="auth-card__divider-line"></span>
+            </div>
+
+            <div class="auth-card__footer">
+                <span>Already have an account? <a class="auth-card__link" href="/login.html">Sign in</a></span>
+                <div class="auth-trust">
+                    <span class="auth-trust__dot"></span>
+                    <span class="auth-trust__text">Free forever — no credit card needed</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/js/register.js"></script>
+</body>
+</html>

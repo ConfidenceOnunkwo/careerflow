@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerFlow - Add Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/images/careerflow-icon.svg">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="brand">
+            <img class="logo" src="images/careerflow-icon.svg" alt="CareerFlow logo">
+            <div class="brand-text">
+                <h1 class="brand-name">CareerFlow</h1>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="application.html" class="active">Add Application</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="form-container">
+            <div class="app-form-card">
+
+                <div class="app-form-header">
+                    <h1 class="app-form-title">
+                        Add new <span class="app-form-title-accent">Application</span>
+                    </h1>
+                    <p class="app-form-subtitle">Fill in the details below to track a new job application</p>
+                </div>
+
+                <div class="app-form-body">
+                    <form id="add-app-form" class="app-form" method="POST" action="/add-job">
+
+                        <div class="form-group">
+                            <label for="compName">Company name</label>
+                            <input
+                                type="text"
+                                id="compName"
+                                name="compName"
+                                placeholder="e.g. RBC, Shopify, IBM"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jobRole">Job role / position</label>
+                            <input
+                                type="text"
+                                id="jobRole"
+                                name="jobRole"
+                                placeholder="e.g. Java Developer"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="statusSelect">Application status</label>
+                            <select id="statusSelect" name="statusSelect" required>
+                                <option value="">Select status</option>
+                                <option value="Applied">Applied</option>
+                                <option value="Interview">Interview</option>
+                                <option value="Offer">Offer</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="btn-primary">Save Application</button>
+                            <a href="dashboard.html" class="cancel-link">Cancel</a>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

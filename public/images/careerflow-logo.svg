@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <defs>
+    <style>
+      .logo-box { fill: #1a35a0; }
+      .logo-inner { fill: #e8effe; }
+      .logo-text { font-family: 'Segoe UI', system-ui, sans-serif; font-weight: 700; fill: #1a35a0; }
+      .logo-sub { font-family: 'Segoe UI', system-ui, sans-serif; font-weight: 400; fill: #a8bef5; }
+      .arrow { fill: none; stroke: #e8effe; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .bar { fill: #e8effe; }
+    </style>
+  </defs>
+
+  <!-- Logo box background -->
+  <rect x="0" y="10" width="96" height="96" rx="18" class="logo-box"/>
+
+  <!-- Chart bars inside box -->
+  <rect x="16" y="72" width="14" height="20" rx="3" class="bar" opacity="0.5"/>
+  <rect x="34" y="56" width="14" height="36" rx="3" class="bar" opacity="0.7"/>
+  <rect x="52" y="40" width="14" height="52" rx="3" class="bar"/>
+
+  <!-- Upward arrow -->
+  <polyline points="16,68 34,52 52,36 72,20" class="arrow"/>
+  <polyline points="62,20 72,20 72,30" class="arrow"/>
+
+  <!-- CareerFlow wordmark -->
+  <text x="112" y="62" font-size="36" font-weight="700" font-family="'Segoe UI', system-ui, sans-serif" fill="#1a35a0" letter-spacing="-1">CareerFlow</text>
+
+  <!-- Tagline -->
+  <text x="114" y="84" font-size="13" font-weight="400" font-family="'Segoe UI', system-ui, sans-serif" fill="#6b83d4" letter-spacing="0.5">Job Application Tracker</text>
+</svg>
