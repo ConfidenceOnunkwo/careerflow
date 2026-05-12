@@ -546,11 +546,13 @@ header {
         padding: 14px 20px;
         flex-direction: column;
         height: auto;
+        padding-top: 14px;
+        padding-bottom: 14px;
         gap: 12px;
     }
 
     body {
-        padding-top: 110px;
+        padding-top: 120px;
     }
 
     .nav-menu {
@@ -560,7 +562,7 @@ header {
 
     .hero {
         flex-direction: column;
-        margin-top: 110px;
+        margin-top: 0;
         min-height: auto;
     }
 
@@ -580,5 +582,19 @@ header {
 
     .about-content {
         flex-direction: column;
+    }
+}
+
+    @media (max-width: 768px) {
+    .btn-cta {
+        padding: 6px 10px;
+        font-size: 11px !important;
+        white-space: nowrap;
+    }
+
+    .nav-menu {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
