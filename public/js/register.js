@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isStrongPassword(password.value.trim())) {
       showError(
         password,
-        "Password must be at least 12 characters and include uppercase, lowercase, number, and special character."
+        "Password must be at least 4 characters"
       );
       isValid = false;
     }
@@ -82,10 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // validate password
-  function isStrongPassword(password) {
-    const pattern =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{12,}$/;
-    return pattern.test(password);
-  }
+ function isStrongPassword(password) {
+    return password.length >= 4;
+}
 
 });
